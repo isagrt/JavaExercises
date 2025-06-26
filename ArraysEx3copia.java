@@ -28,7 +28,12 @@ public class ArraysEx3copia {
         System.out.println("************");
 
         for (int i = 0; i < 5; i++) {
-            System.out.println("Nome: " + alunos[i] +"> Notas: "+notas[i+1]+ " > Media: " + media[i]);
+            System.out.print("Nome: " + alunos[i]);
+            for (int y = 0; y < 4; y++) {
+                System.out.print(" | Nota: "+notas[i][y] );
+
+            }
+            System.out.println("| Media: " + media[i]);
         }
     }
 }
