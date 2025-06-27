@@ -17,9 +17,5 @@ public class Exercicio1Vetor {
         for( i = 0; i < 6; i++){
             System.out.print(number[i]+ " | ");
         }
-        
-
-    }
-
-    
+    }   
 }
