@@ -22,4 +22,3 @@ public class Exercicio2Vetor{
         }      
         System.out.print("Dos 10 digitados, "+par+" sao pares e "+impar+" sao impares");
     }
-}

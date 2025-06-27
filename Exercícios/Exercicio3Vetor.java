@@ -28,4 +28,4 @@ public class Exercicio3Vetor{
          System.out.println("O maior numero da lista é: " +maior);
             System.out.println("O menor numero da lista é: " +menor);
     }
-}// alterar para que consiga imprimir o menor numero
+}
