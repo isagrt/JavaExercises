@@ -24,6 +24,8 @@ public class Exercicio2Matriz {
         }
             System.out.println(" "); 
         }
+        
+        boolean repetido=false;
 
         for (int i = 0; i <3; i++){
             for (int y = 0; y < 5; y++) {
@@ -32,14 +34,22 @@ public class Exercicio2Matriz {
             
             for (int a = 0; a <3; a++){
             for (int b = 0; b < 5; b++){
+
+                if(i == a && y == b)
                 if(matriz[a][b] == matrizCopia){
-                    cont++;
+                    repetido = true;
                 }
             }
             }
             
-            if (cont > 1) {
-            System.out.println("Numero " +matrizCopia+ " esta repetido.");    
-            }          
         }
-    }}}
+        
+     }
+    if(repetido = true){
+                System.out.println("Obtem repetido");
+            }else{
+                System.out.println("Nao obtem repetido");
+            }
+    }
+    
+    }
