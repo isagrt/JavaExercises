@@ -30,9 +30,11 @@ public class MetodoParametro{ //miniminiza todo codigo
         soma(10,20);
 
 
-        double retorno = multiplicar (2,6);
+        double retorno = multiplicar (2,6); //aqui voce cria a variável de retorno, iguala com seu metodo e dsefine valores
+        double retorno1 = multiplicar (5,10);
 
         System.out.println("Retorno: "+retorno);
+        System.out.println("Retorno: "+retorno1); //chama retorno
     }
 }
 
