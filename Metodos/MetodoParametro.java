@@ -12,6 +12,14 @@ public class MetodoParametro{ //miniminiza todo codigo
         System.out.println("Soma: " +soma);
     }
 
+    //Chamada de metodo para multiplicar dois numeros com retorno
+
+    public static double multiplicar (double number1, double number2){
+        double multiplica = number1 * number2;
+        return multiplica;
+
+
+    }
     public static void main(String[] args){
 
         System.out.println("Chamda de metodo simples:");
@@ -20,6 +28,11 @@ public class MetodoParametro{ //miniminiza todo codigo
 
         soma(5,8);
         soma(10,20);
+
+
+        double retorno = multiplicar (2,6);
+
+        System.out.println("Retorno: "+retorno);
     }
 }
 
