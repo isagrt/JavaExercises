@@ -13,8 +13,7 @@ public class Exercicio5Matriz{
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
  
-                System.out.printf("Elemento [%d][%d]: ", i, j);
-                matriz[i][j] = ler.nextInt();
+                matriz[i][j] = (int)(Math.random() * 101);
             }
         }
  
@@ -25,9 +24,9 @@ public class Exercicio5Matriz{
         imprimirMatriz(matriz);
  
         if (ehMagico) {
-            System.out.println("\nA matriz é um quadrado magico!");
+            System.out.println("\nA matriz eh um quadrado magico!");
         } else {
-            System.out.println("\nA matriz NAO é um quadrado magico.");
+            System.out.println("\nA matriz NAO eh um quadrado magico.");
         }
     }
  
