@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 public class MetodoCalc {
 
-    // Métodos de operações matemáticas
     public static double somar(double a, double b) {
         return a + b;
     }
@@ -16,22 +15,13 @@ public class MetodoCalc {
     }
 
     public static double dividir(double a, double b) {
-        if (b == 0) {
-            System.out.println("Erro: Divisão por zero!");
-            return Double.NaN;
-        }
         return a / b;
     }
 
     public static double resto(double a, double b) {
-        if (b == 0) {
-            System.out.println("Erro: Divisão por zero!");
-            return Double.NaN;
-        }
         return a % b;
     }
 
-    // Método principal de menu e lógica
     public static void menu() {
         Scanner scanner = new Scanner(System.in);
 
@@ -39,7 +29,7 @@ public class MetodoCalc {
         int opcao;
 
         do {
-            System.out.println("\n==== Calculadora ====");
+            System.out.println("\nCalculadora da Isa");
             for (int i = 0; i < operacoes.length; i++) {
                 System.out.println((i + 1) + " - " + operacoes[i]);
             }
@@ -54,7 +44,6 @@ public class MetodoCalc {
                 double num2 = scanner.nextDouble();
 
                 double resultado = 0;
-                boolean valido = true;
 
                 switch (opcao) {
                     case 1:
@@ -67,27 +56,28 @@ public class MetodoCalc {
                         resultado = multiplicar(num1, num2);
                         break;
                     case 4:
+                        if (num2 == 0) {
+                            System.out.println("Erro: divisão por zero!");
+                            continue; // volta ao início do loop
+                        }
                         resultado = dividir(num1, num2);
                         break;
                     case 5:
                         resultado = resto(num1, num2);
                         break;
                     default:
-                        valido = false;
+                        System.out.println("Opção inválida.");
+                        continue;
                 }
 
-                if (valido && !Double.isNaN(resultado)) {
-                    System.out.println("Resultado: " + resultado);
-                }
+                System.out.println("Resultado: " + resultado);
 
             } else if (opcao != 0) {
                 System.out.println("Opção inválida. Tente novamente.");
             }
 
         } while (opcao != 0);
-
-        System.out.println("Programa encerrado.");
-        scanner.close();
+        System.out.println("Tchauu!!");
     }
 
     public static void main(String[] args) {
