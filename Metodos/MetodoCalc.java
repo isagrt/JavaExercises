@@ -15,10 +15,18 @@ public class MetodoCalc {
     }
 
     public static double dividir(double a, double b) {
+        if(b == 0){
+            System.out.print("Erro, divisão por zero");
+            return 0;
+        }
         return a / b;
     }
 
     public static double resto(double a, double b) {
+        if(b == 0){
+            System.out.print("Erro, divisão por zero");
+            return 0;
+        }
         return a % b;
     }
 
