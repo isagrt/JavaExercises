@@ -1,104 +1,96 @@
-/* criar uma calculadora de 2 numeros com metodos
--metodos:
-    -somar
-    -dividir
-    -multiplicar
-    -subtrair
-    -restoDaDivição
-    -menuCalculadora
-*/
 import java.util.Scanner;
-public class MetodoCalc{
 
-    static void menu(){ 
+public class MetodoCalc {
+
+    // Métodos de operações matemáticas
+    public static double somar(double a, double b) {
+        return a + b;
+    }
+
+    public static double subtrair(double a, double b) {
+        return a - b;
+    }
+
+    public static double multiplicar(double a, double b) {
+        return a * b;
+    }
+
+    public static double dividir(double a, double b) {
+        if (b == 0) {
+            System.out.println("Erro: Divisão por zero!");
+            return Double.NaN;
+        }
+        return a / b;
+    }
+
+    public static double resto(double a, double b) {
+        if (b == 0) {
+            System.out.println("Erro: Divisão por zero!");
+            return Double.NaN;
+        }
+        return a % b;
+    }
+
+    // Método principal de menu e lógica
+    public static void menu() {
         Scanner scanner = new Scanner(System.in);
+
+        String[] operacoes = {"Soma", "Subtração", "Multiplicação", "Divisão", "Resto da divisão"};
         int opcao;
-        do{
-            System.out.println("1 - Adicao +:");
-            System.out.println("2 - Subtracao - : ");
-            System.out.println("3 - Multiplicao * : ");
-            System.out.println("4 - Divisao / : ");
-            System.out.println("5 - Resto % : ");
-            System.out.println("0 - Encerrar programa");
-            opcao = scanner.nextInt();
-        
-            switch(opcao){
-                case 1:
-                    System.out.println("oi");
-                break;
-                case 2:
-                    System.out.println("oi");
-                break;
-                case 3:
-                    System.out.println("oi");
-                break;
-                case 4:
-                    System.out.println("oi");
-                break;
-                case 5:
-                    System.out.println("oi");
-                break;
-                case 0:
-                    System.out.println("oi");
-                break;
-                default:
-                    System.out.println("Operador invalido");
+
+        do {
+            System.out.println("\n==== Calculadora ====");
+            for (int i = 0; i < operacoes.length; i++) {
+                System.out.println((i + 1) + " - " + operacoes[i]);
             }
-        }while(opcao != 0);
-        }
+            System.out.println("0 - Sair");
+            System.out.print("Escolha uma opção: ");
+            opcao = scanner.nextInt();
 
-        public static void operacaoMatematica(String operacao){
-            int number1;
-            int number2;
-            String result=0;
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("Insira o primeiro valor:");
-            number1 = scanner.nextInt();
-            System.out.println("Insira o segundo valor");
-            number2 = scanner.nextInt();
+            if (opcao >= 1 && opcao <= 5) {
+                System.out.print("Digite o primeiro número: ");
+                double num1 = scanner.nextDouble();
+                System.out.print("Digite o segundo número: ");
+                double num2 = scanner.nextDouble();
 
-            switch(operacao){
-        case "somar":
-            result = somar(number1 + number2);
-        break;
-        case "subtrair":
-            result = subtrair(number1 - number2);
-        break;
-        case "multiplicar":
-            result = multiplicar(number1 * number2);
-        break;
-        case "dividir":
-            result = dividir(number1 / number2);
-        break; 
-        case "resto":
-            result = resto(number1 % number2);
-        break;
-    
-    
-        default:
-        console.log('Operador invalida');
-        }
+                double resultado = 0;
+                boolean valido = true;
 
-   /* public static void somar(double number1, double number2){
-        double soma = number1 + number2;
-        System.out.println("Soma: " +soma);
+                switch (opcao) {
+                    case 1:
+                        resultado = somar(num1, num2);
+                        break;
+                    case 2:
+                        resultado = subtrair(num1, num2);
+                        break;
+                    case 3:
+                        resultado = multiplicar(num1, num2);
+                        break;
+                    case 4:
+                        resultado = dividir(num1, num2);
+                        break;
+                    case 5:
+                        resultado = resto(num1, num2);
+                        break;
+                    default:
+                        valido = false;
+                }
+
+                if (valido && !Double.isNaN(resultado)) {
+                    System.out.println("Resultado: " + resultado);
+                }
+
+            } else if (opcao != 0) {
+                System.out.println("Opção inválida. Tente novamente.");
+            }
+
+        } while (opcao != 0);
+
+        System.out.println("Programa encerrado.");
+        scanner.close();
     }
-    public static void subtrair(double number1, double number2){
-        double subtracao = number1 - number2;
-        System.out.println("Subtracao: " +subtracao);
-    }
-     public static double multiplicar (double number1, double number2){
-        double multiplica = number1 * number2;
-        return multiplica;
-    }
-     public static double dividir (double number1, double number2){
-        double divide = number1 * number2;
-        return divide;
-    }*/ 
-    public static void main(String[] args){
-        System.out.println("Bem vindo! Selecione a operacao desejada: ");
+
+    public static void main(String[] args) {
         menu();
-        
     }
-}
 }
