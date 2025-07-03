@@ -53,6 +53,13 @@ public class MetodoTicTacToe {
 
             matriz[linha][coluna] = jogadorAtual;
 
+            if (haVencedor(matriz, jogadorAtual)){
+                jogoDaVelha(matriz);
+                System.out.println("Parabens " +jogadorAtual+ ", voce eh o(a) campea(o)!!");
+                jogoAtivo = false;
+                continue;
+            }
+
         
             if (jogadorAtual == 'X') {
                 jogadorAtual = 'O';
@@ -72,8 +79,15 @@ public class MetodoTicTacToe {
             if (jogoDaVelha[0][j] == jogador && jogoDaVelha[1][j] == jogador && jogoDaVelha[2][j] == jogador){
                 return true;
             }
-
         }
+        if (jogoDaVelha[0][0] == jogador && jogoDaVelha[1][1] == jogador && jogoDaVelha[2][2] == jogador){
+                return true;
+            }
+
+        if (jogoDaVelha[0][2] == jogador && jogoDaVelha[1][1] == jogador && jogoDaVelha[2][0] == jogador){
+                return true;
+            }
+
         return false;
         }
 
