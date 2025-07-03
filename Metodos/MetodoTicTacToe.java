@@ -60,6 +60,14 @@ public class MetodoTicTacToe {
                 continue;
             }
 
+            if(jogoCheio(matriz)){
+                jogoCheio(matriz);
+                System.out.println("Uma pena :( jogadores, deu velha!!");
+                jogoAtivo = false;
+                continue;
+            };
+
+
         
             if (jogadorAtual == 'X') {
                 jogadorAtual = 'O';
@@ -67,6 +75,17 @@ public class MetodoTicTacToe {
                 jogadorAtual = 'X';
             }
         }
+    }
+
+    public static boolean jogoCheio(char[][] matriz){
+        for (int i = 0; i < 3; i++){
+            for(int j = 0; j<3; j++){
+                if(matriz[i][j] == ' '){
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     public static boolean haVencedor(char[][] jogoDaVelha, char jogador){
