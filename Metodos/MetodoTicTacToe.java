@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class MetodoTicTacToe {
 
     public static char[][] jogoDaVelha(char[][] matriz) {
+        limparTela();
         for (int x = 0; x < 3; x++) {
             for (int o = 0; o < 3; o++) {
                 System.out.print(" " + matriz[x][o] + " ");
@@ -17,14 +18,21 @@ public class MetodoTicTacToe {
         }
         return matriz;
     }
+        public static void limparTela(){
+        try{ 
+        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+        }catch(Exception e){
+            System.out.println("Erro ao tentar limpar tela");
+        }
+    }
 
+    
     public static void alternarJogador() {
         Scanner scanner = new Scanner(System.in);
         boolean jogoAtivo = true;
         char jogadorAtual = 'X';
         char[][] matriz = new char[3][3];
 
-        
         for (int x = 0; x < 3; x++) {
             for (int o = 0; o < 3; o++) {
                 matriz[x][o] = ' ';
@@ -35,7 +43,6 @@ public class MetodoTicTacToe {
         while (jogoAtivo) {
             jogoDaVelha(matriz);
             System.out.println("Vez do jogador " + jogadorAtual);
-
             System.out.print("Linha (0-2): ");
             int linha = scanner.nextInt();
             System.out.print("Coluna (0-2): ");
@@ -45,7 +52,6 @@ public class MetodoTicTacToe {
                 System.out.println("Posição inválida! Tente novamente.");
                 continue;
             }
-
             if (matriz[linha][coluna] != ' ') {
                 System.out.println("Essa casa já está ocupada!");
                 continue;
@@ -59,17 +65,13 @@ public class MetodoTicTacToe {
                 jogoAtivo = false;
                 continue;
             }
-
             if(jogoCheio(matriz)){
                 jogoCheio(matriz);
-                System.out.println("Uma pena :( jogadores, deu velha!!");
+                System.out.printf("Uma pena :( %s e %s , deu velha!!", jogadorAtual, jogadorAtual );
                 jogoAtivo = false;
                 continue;
             };
-
-
-        
-            if (jogadorAtual == 'X') {
+            if (jogadorAtual  jogadorAtual== 'X') {
                 jogadorAtual = 'O';
             } else {
                 jogadorAtual = 'X';
@@ -102,11 +104,9 @@ public class MetodoTicTacToe {
         if (jogoDaVelha[0][0] == jogador && jogoDaVelha[1][1] == jogador && jogoDaVelha[2][2] == jogador){
                 return true;
             }
-
         if (jogoDaVelha[0][2] == jogador && jogoDaVelha[1][1] == jogador && jogoDaVelha[2][0] == jogador){
                 return true;
             }
-
         return false;
         }
 
